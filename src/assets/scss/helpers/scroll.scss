@@ -1,0 +1,37 @@
+*,
+html {
+	--scroll-size: 8px;
+	--radius-md: 0.375rem;
+	--bg-track: rgba(0, 0, 0, 40%);
+	--bg-scroll: rgba(0, 0, 0, 50%);
+	--bg-scroll-hover: rgba(0, 0, 0, 60%);
+
+	scroll-behavior: smooth;
+	scrollbar-width: thin;
+
+	&::-webkit-scrollbar {
+		width: var(--scroll-size);
+		height: var(--scroll-size);
+	}
+
+	&::-webkit-scrollbar-track-piece,
+	&::-webkit-scrollbar-track {
+		background-color: var(--bg-track);
+		transition: background-color 500ms ease-in-out;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--bg-scroll);
+		border-radius: var(--radius-md);
+		transition: background-color 500ms ease-in-out;
+
+		&:hover,
+		&:active {
+			background-color: var(--bg-scroll-hover);
+		}
+	}
+
+	&::-webkit-scrollbar-button {
+		display: none;
+	}
+}
