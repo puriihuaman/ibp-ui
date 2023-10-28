@@ -1,36 +1,40 @@
 import { useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 interface Menu {
 	id: number;
+	path: string;
 	title: string;
 	sublinks: Sublink[];
 }
 interface Sublink {
 	id: number;
+	path: string;
 	title: string;
 }
 
 const menu: Menu[] = [
 	{
 		id: 1,
+		path: "/carreras",
 		title: "carreras",
 		sublinks: [
-			{ id: 1, title: "administración de empresas" },
-			{ id: 2, title: "contabilidad" },
-			{ id: 3, title: "desarrollo de sistemas" },
+			{ id: 1, path: "/administracion", title: "administración de empresas" },
+			{ id: 2, path: "/contabilidad", title: "contabilidad" },
+			{ id: 3, path: "sistemas", title: "desarrollo de sistemas" },
 		],
 	},
-	{ id: 2, title: "cursos", sublinks: [] },
-	{
-		id: 3,
-		title: "servicios",
-		sublinks: [
-			{ id: 1, title: "bienestral estudiantil" },
-			{ id: 2, title: "biblioteca" },
-			{ id: 3, title: "pastoral juvenil" },
-			{ id: 4, title: "secretaria académica" },
-		],
-	},
+	{ id: 2, path: "/cursos", title: "cursos", sublinks: [] },
+	// {
+	// 	id: 3,
+	// 	title: "servicios",
+	// 	sublinks: [
+	// 		{ id: 1, title: "bienestral estudiantil" },
+	// 		{ id: 2, title: "biblioteca" },
+	// 		{ id: 3, title: "pastoral juvenil" },
+	// 		{ id: 4, title: "secretaria académica" },
+	// 	],
+	// },
 
 	// {
 	// 	id: 4,
@@ -50,10 +54,11 @@ const menu: Menu[] = [
 	// },
 	{
 		id: 6,
+		path: "/blog",
 		title: "blog",
 		sublinks: [
-			{ id: 1, title: "¿quiénes somos?" },
-			{ id: 2, title: "noticias" },
+			{ id: 1, path: "/nosotros", title: "¿quiénes somos?" },
+			{ id: 2, path: "/noticias", title: "noticias" },
 		],
 	},
 ];
@@ -74,10 +79,21 @@ export default function Navegation({ isOpen }: { isOpen: boolean }) {
 		>
 			<ul className="px-4 py-2 bg-slate-200 shadow-lg rounded-md lg:flex lg:px-0 lg:bg-transparent lg:shadow-none">
 				{menu.map((item: Menu) => (
-					<li key={item.id} className="relative">
-						{item.sublinks.length > 0 ? (
+					<li key={item.id}>
+						{item.sublinks.length < 1 ? (
+							<NavLink
+								to={item.path}
+								className={({ isActive }): string =>
+									`flex lg:justify-center items-center px-3 py-2 whitespace-nowrap text-sm capitalize hover:text-blue-500 hover:bg-slate-50 transition-colors lg:hover:bg-transparent ${
+										isActive ? "font-semibold text-blue-500" : ""
+									}`
+								}
+							>
+								{item.title}
+							</NavLink>
+						) : (
 							<div
-								className="inline-flex w-full lg:justify-center gap-x-1.5 text-sm font-semibold capitalize rounded-md bg-slate px-3 py-2 text-slate-900 cursor-pointer"
+								className="inline-flex w-full lg:justify-center gap-x-1.5 text-sm capitalize rounded-md bg-slate px-3 py-2 text-slate-900 cursor-pointer"
 								id="menu-button"
 								aria-expanded={isSubmenuOpen}
 								aria-haspopup={isSubmenuOpen}
@@ -94,16 +110,8 @@ export default function Navegation({ isOpen }: { isOpen: boolean }) {
 									</svg>
 								</span>
 							</div>
-						) : (
-							<a
-								href="#"
-								className="relative flex lg:justify-center items-center px-3 py-2 whitespace-nowrap text-sm font-semibold capitalize hover:text-blue-500 hover:bg-slate-50 transition-colors lg:hover:bg-transparent"
-							>
-								{item?.title}
-							</a>
 						)}
 
-						{/* Submenu */}
 						{item.sublinks.length > 0 && (
 							<ul
 								ref={subMenuRef}
@@ -112,19 +120,19 @@ export default function Navegation({ isOpen }: { isOpen: boolean }) {
 										? "visible opactity-100"
 										: "h-0 invisible opactity-0"
 								}`}
-								role="menu"
-								aria-orientation="vertical"
-								aria-labelledby="menu-button"
-								tabIndex={-1}
 							>
 								{item.sublinks.map((sublink: Sublink) => (
 									<li key={sublink.id} role="none">
-										<a
-											className="flex pr-4 pl-6 py-2 text-sm text-slate-800 lg:bg-slate-100 capitalize hover:text-blue-600 transition-colors"
-											href="#"
+										<NavLink
+											to={sublink.path}
+											className={({ isActive }): string =>
+												`flex pr-4 pl-6 py-2 text-sm text-slate-800 lg:bg-slate-100 capitalize hover:text-blue-600 transition-colors ${
+													isActive ? "font-semibold text-blue-500" : ""
+												}`
+											}
 										>
 											{sublink.title}
-										</a>
+										</NavLink>
 									</li>
 								))}
 							</ul>
