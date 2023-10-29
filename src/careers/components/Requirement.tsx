@@ -8,7 +8,10 @@ export default function Requirement() {
 
 			<div className="flex flex-wrap gap-4 text-center">
 				{requirements.map((requirement: Requirement) => (
-					<div className="flex-1 flex flex-col justify-center items-center gap-4 p-4 bg-gray-100 shadow-md">
+					<div
+						key={requirement.id}
+						className="flex-1 flex flex-col justify-center items-center gap-4 p-4 bg-gray-100 shadow-md"
+					>
 						<span className="text-blue-500">
 							<span className="flex justify-center items-center text-current fill-current">
 								<svg className="block w-20 h-20">
