@@ -2,7 +2,7 @@ export default function SuportLink() {
 	return (
 		<div className="flex-1 text-center">
 			<div className="mb-4">
-				<h4 className="uppercase text-2xl">Link de apoyo</h4>
+				<h4 className="text-xl">Link de apoyo</h4>
 			</div>
 
 			<div className="flex flex-col gap-2">

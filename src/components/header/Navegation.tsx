@@ -21,10 +21,10 @@ const menu: Menu[] = [
 		sublinks: [
 			{ id: 1, path: "/administracion", title: "administración de empresas" },
 			{ id: 2, path: "/contabilidad", title: "contabilidad" },
-			{ id: 3, path: "sistemas", title: "desarrollo de sistemas" },
+			{ id: 3, path: "/sistemas", title: "desarrollo de sistemas" },
 		],
 	},
-	{ id: 2, path: "/cursos", title: "cursos", sublinks: [] },
+	{ id: 2, path: "/#cursos", title: "cursos", sublinks: [] },
 	// {
 	// 	id: 3,
 	// 	title: "servicios",

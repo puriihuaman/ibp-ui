@@ -2,7 +2,7 @@ export default function Association() {
 	return (
 		<div className="flex-1">
 			<div className="text-center mb-2">
-				<h4 className="text-2xl uppercase">FORMAMOS PARTE DE LA RED</h4>
+				<h4 className="text-xl uppercase">FORMAMOS PARTE DE LA RED</h4>
 			</div>
 
 			<div className="flex flex-col justify-center items-center gap-4">

@@ -1,10 +1,11 @@
 import Accounting from "@careers/Accounting";
 import Administration from "@careers/Administration";
 import Systems from "@careers/Systems";
+import Main from "@components/Main";
 import Banner from "@components/banner/Banner";
 import Footer from "@components/footer/Footer";
 import Header from "@components/header/Header";
-import Main from "@components/main/Main";
+
 import Blog from "@pages/Blog";
 import NotFound from "@pages/NotFound";
 

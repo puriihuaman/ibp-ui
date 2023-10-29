@@ -17,7 +17,7 @@ export default function Reclamation() {
 			</div>
 
 			<div className="text-center">
-				<h4 className="text-2xl mb-2 uppercase">Contactos</h4>
+				<h4 className="text-xl mb-2 uppercase">Contactos</h4>
 
 				<div className="flex justify-center items-center flex-col gap-4">
 					<a
