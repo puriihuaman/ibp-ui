@@ -1,75 +1,10 @@
-import { useRef, useState } from "react";
+import { Menu, Sublink } from "@interfaces/menu";
+import { menuList } from "@services/menu-list";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
-interface Menu {
-	id: number;
-	path: string;
-	title: string;
-	sublinks: Sublink[];
-}
-interface Sublink {
-	id: number;
-	path: string;
-	title: string;
-}
-
-const menu: Menu[] = [
-	{
-		id: 1,
-		path: "/carreras",
-		title: "carreras",
-		sublinks: [
-			{ id: 1, path: "/administracion", title: "administración de empresas" },
-			{ id: 2, path: "/contabilidad", title: "contabilidad" },
-			{ id: 3, path: "/sistemas", title: "desarrollo de sistemas" },
-		],
-	},
-	{ id: 2, path: "/#cursos", title: "cursos", sublinks: [] },
-	// {
-	// 	id: 3,
-	// 	title: "servicios",
-	// 	sublinks: [
-	// 		{ id: 1, title: "bienestral estudiantil" },
-	// 		{ id: 2, title: "biblioteca" },
-	// 		{ id: 3, title: "pastoral juvenil" },
-	// 		{ id: 4, title: "secretaria académica" },
-	// 	],
-	// },
-
-	// {
-	// 	id: 4,
-	// 	title: "inserción laboral",
-	// open:true,
-	// 	sublinks: [{ id: 1, title: "seguimiento egresados" }],
-	// },
-	// {
-	// 	id: 5,
-	// 	title: "instituto",
-	// 	sublinks: [
-	// 		{ id: 1, title: "directorio" },
-	// 		{ id: 2, title: "docentes" },
-	// 		{ id: 3, title: "nosotros" },
-	// 		{ id: 4, title: "personal" },
-	// 	],
-	// },
-	{
-		id: 6,
-		path: "/blog",
-		title: "blog",
-		sublinks: [
-			{ id: 1, path: "/nosotros", title: "¿quiénes somos?" },
-			{ id: 2, path: "/noticias", title: "noticias" },
-		],
-	},
-];
 
 export default function Navegation({ isOpen }: { isOpen: boolean }) {
 	const [isSubmenuOpen, setIsSubmenuOpen] = useState<boolean>(false);
-	const subMenuRef = useRef(null);
-
-	const handleSubmenuOpen = () => {
-		setIsSubmenuOpen(!isSubmenuOpen);
-	};
 
 	return (
 		<nav
@@ -77,14 +12,14 @@ export default function Navegation({ isOpen }: { isOpen: boolean }) {
 				isOpen ? "min-h-max opacity-100 visible" : "h-0 opacity-0 invisible"
 			}`}
 		>
-			<ul className="px-4 py-2 bg-slate-200 shadow-lg rounded-md lg:flex lg:px-0 lg:bg-transparent lg:shadow-none">
-				{menu.map((item: Menu) => (
+			<ul className="p-4  bg-slate-200 shadow-lg rounded-md lg:flex lg:items-center lg:gap-2 lg:p-0 lg:bg-transparent lg:shadow-none">
+				{menuList.map((item: Menu) => (
 					<li key={item.id}>
 						{item.sublinks.length < 1 ? (
 							<NavLink
 								to={item.path}
 								className={({ isActive }): string =>
-									`flex lg:justify-center items-center px-3 py-2 whitespace-nowrap text-sm capitalize hover:text-blue-500 hover:bg-slate-50 transition-colors lg:hover:bg-transparent ${
+									`flex lg:justify-center items-center p-4 whitespace-nowrap text-sm capitalize hover:text-blue-500 hover:bg-slate-300 transition-colors lg:hover:bg-transparent lg:p-3 ${
 										isActive ? "font-semibold text-blue-500" : ""
 									}`
 								}
@@ -92,27 +27,65 @@ export default function Navegation({ isOpen }: { isOpen: boolean }) {
 								{item.title}
 							</NavLink>
 						) : (
-							<div
-								className="inline-flex w-full lg:justify-center gap-x-1.5 text-sm capitalize rounded-md bg-slate px-3 py-2 text-slate-900 cursor-pointer"
-								id="menu-button"
-								aria-expanded={isSubmenuOpen}
-								aria-haspopup={isSubmenuOpen}
-								onClick={handleSubmenuOpen}
+							<details
+								className="flex w-full lg:justify-center gap-x-1.5 capitalize rounded-md overflow-hidden bg-slate text-slate-900 select-none cursor-pointer transition-all duration-700 lg:rounded-none"
+								onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}
 							>
-								<span>{item?.title}</span>
-								<span
-									className={`flex justify-center items-center transition-transform ${
-										isSubmenuOpen ? "rotate-90" : "rotate-0"
-									}`}
-								>
-									<svg className="block w-5 h-5 text-current fill-current">
-										<use href="/assets/icons/icons.svg#arrow-right"></use>
-									</svg>
-								</span>
-							</div>
+								<summary className="text-sm inline-flex justify-between gap-2 w-full p-4 list-none lg:p-3">
+									<span>{item?.title}</span>
+
+									<span
+										slot="rotate-90"
+										className={`flex justify-center items-center transition-transform rotate-90`}
+									>
+										<svg className="block w-5 h-5 text-current fill-current">
+											<use href="/assets/icons/icons.svg#arrow-right"></use>
+										</svg>
+									</span>
+								</summary>
+
+								{item.sublinks.length > 0 && (
+									<ul
+										className={`lg:absolute lg:top-full z-10 w-full lg:mt-2 lg:w-56 origin-top-right bg-transparent p-4 pr-0 lg:bg-slate-200 lg:shadow-lg lg:ring-1 lg:ring-slate-200 ring-opacity-5 overflow-hidden focus:outline-none lg:rounded-md`}
+									>
+										{item.sublinks.map((sublink: Sublink) => (
+											<li key={sublink.id} role="none">
+												<NavLink
+													to={sublink.path}
+													className={({ isActive }): string =>
+														`flex p-4 text-sm text-slate-800 capitalize font-normal hover:text-blue-600 hover:bg-slate-300 lg:p-2 lg:hover:bg-transparent lg:bg-transparent transition-colors ${
+															isActive ? "font-semibold text-blue-500" : ""
+														}`
+													}
+												>
+													{sublink.title}
+												</NavLink>
+											</li>
+										))}
+									</ul>
+								)}
+							</details>
+							// <div
+							// 	className="inline-flex w-full lg:justify-center gap-x-1.5 text-sm capitalize rounded-md bg-slate px-3 py-2 text-slate-900 cursor-pointer"
+							// 	id="menu-button"
+							// 	aria-expanded={isSubmenuOpen}
+							// 	aria-haspopup={isSubmenuOpen}
+							// 	onClick={handleSubmenuOpen}
+							// >
+							// 	<span>{item?.title}</span>
+							// 	<span
+							// 		className={`flex justify-center items-center transition-transform ${
+							// 			isSubmenuOpen ? "rotate-90" : "rotate-0"
+							// 		}`}
+							// 	>
+							// 		<svg className="block w-5 h-5 text-current fill-current">
+							// 			<use href="/assets/icons/icons.svg#arrow-right"></use>
+							// 		</svg>
+							// 	</span>
+							// </div>
 						)}
 
-						{item.sublinks.length > 0 && (
+						{/* {item.sublinks.length > 0 && (
 							<ul
 								ref={subMenuRef}
 								className={`lg:absolute right-0 z-10 lg:mt-2 w-56 origin-top-right bg-transparent lg:bg-slate-200 lg:shadow-lg lg:ring-1 lg:ring-slate-200 ring-opacity-5 overflow-hidden focus:outline-none lg:rounded-md ${
@@ -136,7 +109,7 @@ export default function Navegation({ isOpen }: { isOpen: boolean }) {
 									</li>
 								))}
 							</ul>
-						)}
+						)} */}
 					</li>
 				))}
 			</ul>
