@@ -1,6 +1,6 @@
 export default function CareerSection() {
 	return (
-		<section id="/#cursos" className="max-w-6xl mx-auto px-4 py-16">
+		<section id="/#cursos" className="max-w-6xl mx-auto py-16">
 			<header className="mb-8">
 				<h3 className="font-bold text-2xl lg:text-4xl">Nuestras carreras</h3>
 			</header>

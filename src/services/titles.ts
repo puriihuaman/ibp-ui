@@ -1,4 +1,4 @@
-import { Title } from "@careers/interfaces/title";
+import { Title } from "@interfaces/title";
 
 const titles: Title[] = [
 	{

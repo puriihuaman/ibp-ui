@@ -1,4 +1,4 @@
-import { Requirement } from "@careers/interfaces/requirement";
+import { Requirement } from "@interfaces/requirement";
 
 const requirements: Requirement[] = [
 	{

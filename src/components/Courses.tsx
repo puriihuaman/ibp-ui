@@ -1,6 +1,6 @@
 export default function Courses() {
 	return (
-		<section className="px-4 py-16 max-w-6xl mx-auto">
+		<section className="py-16 max-w-6xl mx-auto">
 			<header className="mb-8">
 				<h3 className="font-bold text-2xl lg:text-4xl">Nuestros Cursos</h3>
 			</header>

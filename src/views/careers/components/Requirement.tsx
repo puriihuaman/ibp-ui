@@ -1,5 +1,5 @@
-import { requirements } from "@careers/data/requirements";
-import { Requirement } from "@careers/interfaces/requirement";
+import { Requirement } from "@interfaces/requirement";
+import { requirements } from "@services/requirements";
 
 export default function Requirement() {
 	return (

@@ -1,6 +1,6 @@
 export default function MoralValues() {
 	return (
-		<section className="max-w-6xl mx-auto px-4 py-16">
+		<section className="max-w-6xl mx-auto py-16">
 			<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 				<article className="p-4 text-slate-900 bg-slate-100 shadow-md rounded-md">
 					<div className="w-40 h-40 mx-auto p-3">

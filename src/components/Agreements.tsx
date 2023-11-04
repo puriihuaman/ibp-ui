@@ -1,6 +1,6 @@
 export default function Agreements() {
 	return (
-		<section className="max-w-6xl mx-auto px-4 py-16">
+		<section className="max-w-6xl mx-auto py-16">
 			<div className="flex flex-col lg:flex-row gap-8">
 				<div className="flex-1 py-8">
 					<p className="text-xl text-center mb-4 md:text-2xl">

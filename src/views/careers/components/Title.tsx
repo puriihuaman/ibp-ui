@@ -1,5 +1,5 @@
-import { titles } from "@careers/data/Titles";
-import { Title } from "@careers/interfaces/title";
+import { Title } from "@interfaces/title";
+import { titles } from "@services/Titles";
 
 export default function Title() {
 	return (

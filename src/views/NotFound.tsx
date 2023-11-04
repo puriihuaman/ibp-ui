@@ -1,9 +1,11 @@
+import MainComponent from "@features/MainComponent";
+
 export default function NotFound() {
 	return (
-		<main>
+		<MainComponent>
 			<div>
 				<h2>404 - Not Found</h2>
 			</div>
-		</main>
+		</MainComponent>
 	);
 }

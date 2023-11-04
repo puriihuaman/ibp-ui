@@ -14,7 +14,7 @@ export default function Contact() {
 
 			<a
 				className="flex justify-center items-center w-8 h-8 text-slate-900 animate-bounce"
-				href="https://api.whatsapp.com/send?phone=928754115&text=Hola%20!!,%20Quisiera%20informaci%C3%B3n%20sobre%20sus%20carreras%20..."
+				href="/edusys"
 			>
 				<img
 					className="aspect-square"

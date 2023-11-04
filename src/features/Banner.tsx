@@ -1,6 +1,7 @@
-import { bannerList } from "@data/banner-list";
-import { Banner } from "@interfaces/Banner";
 import { useEffect, useState } from "react";
+
+import { Banner } from "@interfaces/Banner";
+import { bannerList } from "@services/banner-list";
 
 export default function Banner() {
 	const [banners, setBanners] = useState<Banner[]>(bannerList);
