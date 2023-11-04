@@ -8,6 +8,7 @@ import NotFound from "@views/NotFound";
 import Home from "@views/Home";
 import LoginEdusys from "@features/LoginEdusys";
 import ProtectedRoute from "./ProtectedRoute";
+import Graduates from "@views/Graduates";
 
 export default function LayoutRouter() {
 	return (
@@ -19,6 +20,7 @@ export default function LayoutRouter() {
 					<Route path="/contabilidad" element={<Accounting />} />
 					<Route path="/administracion" element={<Administration />} />
 					<Route path="/sistemas" element={<Systems />} />
+					<Route path="/egresados" element={<Graduates />} />
 
 					<Route
 						path="/edusys"
