@@ -1,16 +1,22 @@
+import { useState } from "react";
+
+import SvgIcon from "@components/SvgIcon";
 import Footer from "@components/footer/Footer";
 import Header from "@components/header/Header";
 import Banner from "@features/Banner";
 import MainComponent from "@features/MainComponent";
 
 export default function Graduates() {
+	const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+
 	return (
 		<>
-			<Banner />
+			<Banner srcImage={"bg-[url('/assets/images/segegresado.png')]"} />
+
 			<Header />
 
 			<MainComponent>
-				<section className="max-w-6xl mx-auto py-8">
+				<section className="max-w-6xl mx-auto py-8 px-4">
 					<div className="flex flex-col lg:flex-row gap-8">
 						<section>
 							<article className="text-center lg:text-left">
@@ -23,12 +29,11 @@ export default function Graduates() {
 							</article>
 
 							<div className="py-8 flex flex-col lg:flex-row gap-8">
-								<article className="p-4 bg-gray-100 shadow-md lg:px-8">
-									<div className="h-40">
-										<img
-											className="h-full mx-auto"
-											src="https://www.ibp.edu.pe/img/egresados.png"
-											alt="información de egresados"
+								<article className="p-4 bg-slate-50 shadow lg:px-8 dark:bg-slate-900 transition-colors">
+									<div className="w-32 h-32 flex justify-center items-center mx-auto p-3 text-ibp-500 bg-ibp-50 rounded-md dark:bg-ibp-900/20 transition-colors">
+										<SvgIcon
+											iconID="messages-square"
+											classes="w-16 h-16 text-ibp-500"
 										/>
 									</div>
 
@@ -42,21 +47,18 @@ export default function Graduates() {
 										</p>
 
 										<a
-											className="flex justify-center items-center p-3 mt-4 text-blue-50 bg-blue-500 ring ring-blue-500 rounded-md shadow-md hover:bg-blue-600 hover:ring-blue-500 transition-all"
-											href="/cuestionario"
+											className="flex justify-center items-center p-3 mt-4 text-sm text-slate-50 bg-ibp-500 border-2 border-ibp-500 rounded-md shadow-md hover:bg-ibp-600 hover:border-ibp-600 transition-all"
+											href="https://www.ibp.edu.pe/cuestionario/"
+											target="_blank"
 										>
 											Registrate
 										</a>
 									</div>
 								</article>
 
-								<article className="p-4 bg-gray-100 shadow-md lg:px-8">
-									<div className="h-40">
-										<img
-											className="h-full mx-auto"
-											src="https://www.ibp.edu.pe/svg/egresados.svg"
-											alt="encuentro de egresados"
-										/>
+								<article className="p-4 bg-slate-50 shadow-md lg:px-8 dark:bg-slate-900 transition-colors">
+									<div className="w-32 h-32 flex justify-center items-center mx-auto p-3 text-ibp-500 bg-ibp-50 rounded-md dark:bg-ibp-900/20 transition-colors">
+										<SvgIcon iconID="users" classes="w-16 h-16 text-ibp-500" />
 									</div>
 
 									<div className="text-center py-4">
@@ -68,12 +70,12 @@ export default function Graduates() {
 											2023-II
 										</p>
 
-										<a
-											className="flex justify-center items-center p-3 mt-4 text-blue-50 bg-blue-500 ring ring-blue-500 rounded-md shadow-md hover:bg-blue-600 hover:ring-blue-500 transition-all"
-											href="/cuestionario"
+										<button
+											className="w-full flex justify-center items-center p-3 mt-4 text-sm text-slate-50 bg-ibp-500 border-2 border-ibp-500 rounded-md shadow-md hover:bg-ibp-600 hover:border-ibp-600 transition-all"
+											onClick={() => setIsOpenModal(!isOpenModal)}
 										>
 											Actualiza
-										</a>
+										</button>
 									</div>
 								</article>
 							</div>
@@ -91,66 +93,23 @@ export default function Graduates() {
 						</section>
 
 						<aside className="lg:ml-auto lg:max-w-xs">
-							<div className="sticky top-24 py-4 text-center bg-slate-100 shadow-md">
-								<div className="p-4">
-									<h3 className="text-2xl font-bold mb-4 lg:text-3xl">
-										Escríbenos
-									</h3>
-									<p>Si deseas información o tienes una consulta, escríbenos</p>
-								</div>
-
-								<article className="p-4">
-									<div className="text-blue-500">
-										<span className="flex justify-center items-center">
-											<svg className="block w-32 h-32 text-current fill-current">
-												<use href="/assets/icons/icons.svg#job" />
-											</svg>
-										</span>
+							<div className="sticky top-24 p-4 text-center bg-slate-50 shadow dark:bg-slate-900 transition-colors">
+								<div className="flex flex-col gap-4">
+									<div className="w-16 h-16 flex justify-center items-center mx-auto p-3 text-ibp-500 bg-ibp-50 rounded-md dark:bg-ibp-900/20 transition-colors">
+										<SvgIcon iconID="mail-search" classes="w-8 h-8" />
 									</div>
 
-									<article className="py-4">
-										<h4 className="font-semibold mb-2">Comunicate</h4>
-										<div className="text-sm text-blue-50 bg-blue-500 shadow-md rounded-lg hover:bg-blue-600 transition-colors">
-											<a
-												className="flex justify-center items-center gap-2 p-3"
-												href="mailto:pamela.culqui@bpastor.edu.pe"
-											>
-												<span className="flex justify-center items-center">
-													<svg className="block w-5 h-5 text-current fill-current">
-														<use href="/assets/icons/icons.svg#mail" />
-													</svg>
-												</span>
+									<h3 className="text-2xl font-bold lg:text-3xl">Escríbenos</h3>
+									<p>Si deseas información o tienes una consulta, escríbenos</p>
 
-												<span>pamela.culqui@bpastor.edu.pe</span>
-											</a>
-										</div>
-									</article>
-								</article>
-
-								<div className="text-center bg-slate-100 py-4">
-									<p className="font-semibold mb-4">Nuestras redes</p>
-
-									<div className="flex justify-center items-center flex-wrap gap-4">
+									<div className="text-sm text-slate-800 border border-slate-200 shadow rounded-lg hover:text-ibp-500 hover:border-current dark:text-slate-50 dark:border-slate-800 dark:hover:text-ibp-500 dark:hover:border-current transition-colors">
 										<a
-											href="https://m.facebook.com/people/CEFE-IBP/100057463237906/"
-											className="block text-blue-600"
-											target="_blank"
+											className="flex justify-center items-center gap-2 p-3"
+											href="mailto:pamela.culqui@bpastor.edu.pe"
 										>
-											<span className="flex justify-center items-center">
-												<svg className="block w-10 h-10 text-current fill-current">
-													<use href="/assets/icons/icons.svg#facebook"></use>
-												</svg>
-											</span>
-											<span className="hidden">Facebook</span>
-										</a>
+											<SvgIcon iconID="mail" classes="w-4 h-4" />
 
-										<a href="#" className="block text-pink-500" target="_blank">
-											<span className="flex justify-center items-center">
-												<svg className="block w-10 h-10 text-current fill-current">
-													<use href="/assets/icons/icons.svg#instagram"></use>
-												</svg>
-											</span>
-											<span className="hidden">instagram</span>
+											<span>pamela.culqui@bpastor.edu.pe</span>
 										</a>
 									</div>
 								</div>
@@ -161,6 +120,43 @@ export default function Graduates() {
 			</MainComponent>
 
 			<Footer />
+
+			<div
+				className={`${
+					isOpenModal
+						? "scale-1 visible opacity-100"
+						: "scale-0 invisible opacity-0"
+				} fixed top-0 left-0 z-50 w-full h-full flex justify-center items-center p-4 bg-slate-900/40 origin-center transition-all duration-700`}
+				data-modal="modal"
+				onClick={() => setIsOpenModal(!isOpenModal)}
+			>
+				<div className="min-w-60 max-w-lg w-full bg-slate-50 rounded-md shadow-md">
+					<div className="relative">
+						<button
+							className="absolute right-0 -top-10 p-1 z-50 bg-slate-50 text-ibp-500 rounded-md overflow-hidden hover:bg-ibp-500 hover:text-slate-50 active:scale-95 transition-all"
+							onClick={() => setIsOpenModal(!isOpenModal)}
+						>
+							<SvgIcon iconID="close" classes="w-6 h-6" />
+						</button>
+
+						<div className="relative bg-ibp-500 rounded-md overflow-hidden">
+							<img
+								className="w-full h-full"
+								src="/assets/images/encuentroegresados.png"
+								alt="encuentro de egresados"
+							/>
+
+							<a
+								className="absolute right-24 bottom-24 flex justify-center items-center py-3 px-4 text-sm text-slate-50 bg-ibp-500 border-2 border-ibp-500 rounded-md shadow-md hover:bg-ibp-600 hover:border-ibp-600 transition-all"
+								href="https://www.ibp.edu.pe/cuestionario/"
+								target="_blank"
+							>
+								Inscríbete
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</>
 	);
 }

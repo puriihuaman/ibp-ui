@@ -1,110 +1,48 @@
-import { useEffect, useState } from "react";
-
-import { Banner } from "@interfaces/Banner";
-import { bannerList } from "@services/banner-list";
-
-export default function Banner() {
-	const [banners, setBanners] = useState<Banner[]>(bannerList);
-
-	const [current, setCurrent] = useState<number>(1);
-	const [start, setStart] = useState<number>(0);
-	const [end, setEnd] = useState<number>(1);
-
-	const byItem = 1;
-	const total = Math.ceil(bannerList.length / byItem);
-
-	const handleNextBanner = (): void => {
-		setCurrent(current + 1);
-
-		const countStart = start + byItem;
-		const countEnd = end + byItem;
-
-		setStart(countStart);
-		setEnd(countEnd);
-
-		if (current === total) {
-			setCurrent(1);
-			setStart(0);
-			setEnd(1);
-		}
-
-		setBanners(bannerList.slice(start, end));
-	};
-
-	const handlePreviousBanner = (): void => {
-		setCurrent(current - 1);
-		let countStart, countEnd;
-
-		if (current === 1) {
-			countStart = (total - 1) * byItem;
-			countEnd = total * byItem;
-		} else {
-			countStart = (current - 2) * byItem;
-			countEnd = (current - 1) * byItem;
-		}
-
-		setStart(countStart);
-		setEnd(countEnd);
-
-		if (current === 1) {
-			setCurrent(total);
-			setStart((total - 1) * byItem);
-			setEnd(total * byItem);
-		}
-
-		setBanners(bannerList.slice(start, end));
-	};
-
-	useEffect((): void => {
-		setBanners(bannerList.slice(start, end));
-	}, [current, start, end]);
-
+export default function Banner({
+	title,
+	srcImage,
+	children,
+	transparency = false,
+}: {
+	title?: string;
+	srcImage: string;
+	children?: JSX.Element;
+	transparency?: boolean;
+}) {
 	return (
-		<section className="">
-			<div className="relative min-h-[25vh] overflow-hidden">
-				{/* Content */}
-				<div className="min-h-[inherit]">
-					{banners.map((banner: Banner) => (
-						<img
-							key={banner.id}
-							className="min-h-[inherit] object-cover select-none"
-							src={banner.image}
-							alt={banner.description}
-						/>
-					))}
+		<div
+			className={`relative overflow-hidden ${srcImage} bg-no-repeat bg-center bg-cover`}
+		>
+			<div
+				className={`flex justify-center items-center flex-col min-h-[280px] md:min-h-[360px] lg:min-h-[420px] max-w-5xl mx-auto px-4 py-8 after:content-[''] after:absolute after:w-full after:h-full ${
+					transparency
+						? "after:bg-gradient-to-r from-ibp-500/10 to-slate-950/80"
+						: ""
+				}`}
+			>
+				{title && (
+					<p className="relative z-10 text-slate-300 uppercase font-bold mb-auto mr-auto">
+						Estudia con los mejores
+					</p>
+				)}
+
+				<div className="relative z-10 flex justify-center items-center flex-col gap-4 p-4 mb-4">
+					<h1 className="text-slate-50 text-center text-2xl lg:text-5xl font-bold">
+						{title}
+					</h1>
+
+					{children}
 				</div>
 
-				{/* buttons */}
-				<div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-gray-950/10">
-					<div className="flex justify-between items-center gap-4 w-full h-full px-4">
-						<button
-							type="button"
-							className="flex justify-center items-center p-2 scale-100 outline-none text-blue-500 active:scale-95 hover:text-blue-600 transition-all"
-							onClick={handlePreviousBanner}
-						>
-							<span className="flex justify-center items-center">
-								<svg className="block w-8 h-8 text-current fill-current">
-									<use href="/assets/icons/icons.svg#arrow-left"></use>
-								</svg>
-							</span>
-							<span className="text-sm hidden">anterior</span>
-						</button>
-
-						<button
-							type="button"
-							className="flex justify-center items-center p-2 scale-100 outline-none text-blue-500 active:scale-95 hover:text-blue-600 transition-all"
-							onClick={handleNextBanner}
-						>
-							<span className="flex justify-center items-center">
-								<svg className="block w-8 h-8 text-current fill-current">
-									<use href="/assets/icons/icons.svg#arrow-right"></use>
-								</svg>
-							</span>
-							<span className="text-sm hidden">siguiente</span>
-						</button>
+				{title && (
+					<div className="relative z-10 mt-auto ml-auto bg-ibp-500 p-2 text-xs lg:text-sm">
+						<p className="text-slate-50">
+							<strong>INICIO </strong>
+							04 de setiembre
+						</p>
 					</div>
-				</div>
+				)}
 			</div>
-		</section>
+		</div>
 	);
 }

@@ -1,3 +1,4 @@
+import SvgIcon from "@components/SvgIcon";
 import { Requirement } from "@interfaces/requirement";
 import { requirements } from "@services/requirements";
 
@@ -10,17 +11,13 @@ export default function Requirement() {
 				{requirements.map((requirement: Requirement) => (
 					<div
 						key={requirement.id}
-						className="flex-1 flex flex-col justify-center items-center gap-4 p-4 bg-gray-100 shadow-md"
+						className="flex-1 flex flex-col justify-center items-center gap-4 p-4 bg-slate-50 border border-slate-200 shadow rounded-md dark:bg-slate-900 dark:border-slate-800 transition-all"
 					>
-						<span className="text-blue-500">
-							<span className="flex justify-center items-center text-current fill-current">
-								<svg className="block w-20 h-20">
-									<use href={requirement.icon}></use>
-								</svg>
-							</span>
-						</span>
+						<div className="w-16 h-16 flex justify-center items-center p-3 text-ibp-500 bg-ibp-50 rounded-md dark:bg-ibp-900/20 transition-colors">
+							<SvgIcon iconID={requirement.icon} classes="w-8 h-8" />
+						</div>
 
-						<span className="font-semibold text-gray-600 mb-auto">
+						<span className="font-semibold text-slate-600 mb-auto dark:text-slate-400">
 							{requirement.title}
 						</span>
 					</div>

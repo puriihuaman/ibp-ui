@@ -1,24 +1,28 @@
+import SvgIcon from "@components/SvgIcon";
+
 export default function Form() {
 	return (
-		<aside className="ml-auto lg:max-w-xs">
+		<aside className="lg:ml-auto lg:max-w-xs">
 			<form
 				action="#"
 				method="POST"
-				className="sticky top-20 px-6 py-8 flex flex-col gap-6 text-gray-900 bg-gray-100 text-center shadow-md rounded-md"
+				className="sticky top-20 px-6 py-8 flex flex-col gap-6 text-slate-900 bg-slate-50 text-center border border-slate-200 shadow-sm rounded-md dark:text-slate-50 dark:bg-slate-900 dark:border-slate-800 transition-all"
 			>
-				<fieldset className="flex flex-col gap-3">
-					<h3 className="font-bold text-2xl text-blue-500">
+				<div className="flex flex-col gap-3">
+					<h3 className="font-bold text-2xl text-ibp-500">
 						¡Aprovecha un descuento del 50% disponible hasta el 18 de agosto!
 					</h3>
-					<p className="font-semibold text-gray-800">
+
+					<p className="font-semibold text-slate-800 dark:text-slate-300">
 						Obtén un descuento del 50% al referir a un amigo.
+						<br />
 						<span>¡No te pierdas esta oferta especial!</span>
 					</p>
-				</fieldset>
+				</div>
 
 				<fieldset className="block">
 					<input
-						className="block w-full py-3 px-4 outline-none ring ring-gray-200 rounded-md focus:ring-blue-500"
+						className="block w-full py-3 px-4 outline-none bg-slate-50 border-2 border-slate-200 rounded-md focus:border-ibp-500 active:border-ibp-500 placeholder:text-slate-400 placeholder:text-sm dark:bg-slate-900 dark:border-slate-800 dark:focus:border-ibp-500 dark:active:border-ibp-500 transition-all"
 						type="text"
 						placeholder="Nombres y Apellidos"
 					/>
@@ -26,7 +30,7 @@ export default function Form() {
 
 				<fieldset>
 					<input
-						className="block w-full py-3 px-4 outline-none ring ring-gray-200 rounded-md focus:ring-blue-500"
+						className="block w-full py-3 px-4 outline-none bg-slate-50 border-2 border-slate-200 rounded-md focus:border-ibp-500 active:border-ibp-500 placeholder:text-slate-400 placeholder:text-sm dark:bg-slate-900 dark:border-slate-800 dark:focus:border-ibp-500 dark:active:border-ibp-500 transition-all"
 						type="text"
 						placeholder="999-999-999"
 					/>
@@ -34,7 +38,7 @@ export default function Form() {
 
 				<fieldset>
 					<input
-						className="block w-full py-3 px-4 outline-none ring ring-gray-200 rounded-md focus:ring-blue-500"
+						className="block w-full py-3 px-4 outline-none bg-slate-50 border-2 border-slate-200 rounded-md focus:border-ibp-500 active:border-ibp-500 placeholder:text-slate-400 placeholder:text-sm dark:bg-slate-900 dark:border-slate-800 dark:focus:border-ibp-500 dark:active:border-ibp-500 transition-all"
 						type="text"
 						placeholder="ibp@gmail.com"
 					/>
@@ -42,14 +46,11 @@ export default function Form() {
 
 				<fieldset>
 					<button
-						className="flex justify-center items-center gap-2 mx-auto py-2 px-6 text-gray-50 bg-blue-500 rounded-md ring ring-blue-500 hover:bg-blue-600 transition-colors"
+						className="flex justify-center items-center gap-2 mx-auto py-2 px-6 text-slate-50 bg-ibp-500 rounded-md border-2 border-ibp-500 hover:bg-ibp-600  hover:border-ibp-600 transition-colors"
 						type="submit"
 					>
-						<span className="block text-current fill-current">
-							<svg className="block w-5 h-5">
-								<use href="/assets/icons/icons.svg#send"></use>
-							</svg>
-						</span>
+						<SvgIcon iconID="send-linear" classes="w-5 h-5" />
+
 						<span>Enviar</span>
 					</button>
 				</fieldset>

@@ -1,5 +1,5 @@
 import { Title } from "@interfaces/title";
-import { titles } from "@services/Titles";
+import { titles } from "@services/titles";
 
 export default function Title() {
 	return (
@@ -8,7 +8,7 @@ export default function Title() {
 
 			<div className="flex flex-col gap-4">
 				{titles.map((title: Title) => (
-					<div key={title.id} className="overflow-hidden shadow-md rounded-md">
+					<div key={title.id} className="overflow-hidden shadow rounded-md">
 						<img
 							className="aspect-video"
 							src={title.path}

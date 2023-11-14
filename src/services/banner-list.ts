@@ -1,13 +1,8 @@
-import { Banner } from "@interfaces/Banner";
+import { Slider } from "@interfaces/slider";
 
-const bannerList: Banner[] = [
-	{ id: 1, image: "https://www.ibp.edu.pe/img/slider2.png", description: "" },
-	{ id: 2, image: "https://www.ibp.edu.pe/img/slider3.png", description: "" },
-	{
-		id: 3,
-		image: "	https://www.ibp.edu.pe/img/segegresado.png",
-		description: "seguimiento de egresados",
-	},
+const sliderList: Slider[] = [
+	{ id: 1, image: "/assets/images/slider2.png", description: "slider2" },
+	{ id: 2, image: "/assets/images/slider3.png", description: "slider3" },
 ];
 
-export { bannerList };
+export { sliderList };

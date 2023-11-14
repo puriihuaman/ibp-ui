@@ -1,7 +1,7 @@
 export default function Logo() {
 	return (
 		<div className="mr-auto">
-			<a href="/" className="block w-28">
+			<a href="/" className="block w-24">
 				<img
 					className="aspect-video w-full"
 					src="https://www.ibp.edu.pe/img/logo.png"

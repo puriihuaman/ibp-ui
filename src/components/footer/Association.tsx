@@ -6,7 +6,7 @@ export default function Association() {
 			</div>
 
 			<div className="flex flex-col justify-center items-center gap-4">
-				<div className="w-28 h-28">
+				<div className="w-24 h-24">
 					<img
 						className="aspect-square"
 						src="https://www.ibp.edu.pe/svg/cied.svg"
@@ -14,7 +14,7 @@ export default function Association() {
 					/>
 				</div>
 
-				<div className="w-28 h-28">
+				<div className="w-24 h-24">
 					<img
 						className="aspect-square"
 						src="https://www.ibp.edu.pe/svg/ced.svg"

@@ -12,11 +12,25 @@ import Footer from "@components/footer/Footer";
 export default function Administration() {
 	return (
 		<>
-			<Banner />
+			<Banner
+				title="Administración de Empresa"
+				srcImage={"bg-[url('/assets/images/adm.png')]"}
+				transparency={true}
+			>
+				<a
+					className="mt-4 py-3 px-4 text-sm text-slate-50 bg-ibp-500 border-2 border-ibp-500 rounded-md hover:bg-ibp-600 hover:border-ibp-600 transition-all"
+					href="https://ibp.edu.pe/doc/AdministracionIBP.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Descargar Malla
+				</a>
+			</Banner>
+
 			<Header />
 
 			<MainComponent>
-				<section className="max-w-6xl mx-auto py-8">
+				<section className="max-w-6xl mx-auto py-8 px-4">
 					<div className="flex flex-col lg:flex-row gap-8">
 						<section className="w-full">
 							<CareerInformation

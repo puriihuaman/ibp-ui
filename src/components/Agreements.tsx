@@ -1,6 +1,6 @@
 export default function Agreements() {
 	return (
-		<section className="max-w-6xl mx-auto py-16">
+		<section className="px-4 max-w-6xl mx-auto py-8">
 			<div className="flex flex-col lg:flex-row gap-8">
 				<div className="flex-1 py-8">
 					<p className="text-xl text-center mb-4 md:text-2xl">
@@ -9,7 +9,7 @@ export default function Agreements() {
 					</p>
 
 					<div className="flex flex-col flex-wrap sm:flex-row gap-4">
-						<article className="p-4 w-40 h-40 mx-auto">
+						<article className="p-4 w-32 h-32 mx-auto">
 							<img
 								className="aspect-square"
 								src="https://www.ibp.edu.pe/img/bup.png"
@@ -17,7 +17,7 @@ export default function Agreements() {
 							/>
 						</article>
 
-						<article className="p-4 w-40 h-40 mx-auto">
+						<article className="p-4 w-32 h-32 mx-auto">
 							<img
 								className="aspect-square"
 								src="https://www.ibp.edu.pe/img/dio.png"
@@ -25,7 +25,7 @@ export default function Agreements() {
 							/>
 						</article>
 
-						<article className="p-4 w-40 h-40 mx-auto">
+						<article className="p-4 w-32 h-32 mx-auto">
 							<img
 								className="aspect-square"
 								src="https://www.ibp.edu.pe/img/cied.png"
@@ -36,9 +36,11 @@ export default function Agreements() {
 				</div>
 
 				<article className="flex-1 py-8">
-					<h3 className="text-2xl text-center mb-4">Nuestros Convenios</h3>
+					<h3 className="text-2xl text-center font-bold mb-4">
+						Nuestros Convenios
+					</h3>
 
-					<div className="w-60 mx-auto md:w-80">
+					<div className="w-44 mx-auto md:w-60">
 						<img
 							className="aspect-video object-cover"
 							src="https://www.ibp.edu.pe/img/ucss.png"

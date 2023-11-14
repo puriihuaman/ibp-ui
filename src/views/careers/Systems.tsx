@@ -12,11 +12,25 @@ import Banner from "@features/Banner";
 export default function Systems() {
 	return (
 		<>
-			<Banner />
+			<Banner
+				title="Desarrollo de Sistemas e Información"
+				srcImage={"bg-[url('/assets/images/dsi.jpg')]"}
+				transparency={true}
+			>
+				<a
+					className="mt-4 py-3 px-4 text-sm text-slate-50 bg-green-500 border-2 border-green-500 rounded-md hover:bg-green-600 hover:border-green-600 transition-all"
+					href="https://ibp.edu.pe/doc/DesarrolloIBP.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Descargar Malla
+				</a>
+			</Banner>
+
 			<Header />
 
 			<MainComponent>
-				<section className="max-w-6xl mx-auto py-8">
+				<section className="max-w-6xl mx-auto py-8 px-4">
 					<div className="flex flex-col lg:flex-row gap-8">
 						<section className="w-full">
 							<CareerInformation

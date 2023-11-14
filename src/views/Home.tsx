@@ -6,30 +6,32 @@ import MoralValues from "@components/MoralValues";
 import StudentStatistics from "@components/StudentStatistics";
 import CareerSection from "./careers/components/CareerSection";
 import MainComponent from "@features/MainComponent";
-import Banner from "@features/Banner";
 import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
+import Slider from "@features/Slider";
 
 export default function Home() {
 	return (
 		<>
-			<Banner />
+			<Slider />
 			<Header />
 
 			<MainComponent>
+				<CareerSection />
+
+				<Courses />
+
 				<MoralValues />
 
 				<StudentStatistics />
 
-				<CareerSection />
-
 				<Agreements />
 
-				<InstallmentPrices />
+				<section className="relative min-h-[500px] mb-8">
+					<InstallmentPrices />
 
-				<Courses />
-
-				<BlogSection />
+					<BlogSection />
+				</section>
 			</MainComponent>
 
 			<Footer />
