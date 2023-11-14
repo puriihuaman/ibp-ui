@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Contact from "./Contact";
 import Navegation from "./Navegation";
+import SvgIcon from "@components/SvgIcon";
 
 const MEDIA_QUERY = 1024;
 export default function Header() {
@@ -25,7 +26,7 @@ export default function Header() {
 	}, [isOpen]);
 
 	return (
-		<header className="sticky top-0 z-50 px-4 py-4 shadow-md bg-slate-100">
+		<header className="sticky top-0 z-50 px-4 py-2 border-b border-slate-200 shadow bg-slate-50/95 dark:bg-slate-950/95 dark:border-slate-800 transition-all">
 			<div className="max-w-6xl mx-auto">
 				<div className="flex items-center gap-4">
 					{/* logo */}
@@ -36,14 +37,10 @@ export default function Header() {
 
 					{/* Button */}
 					<button
-						className="order-2 text-slate-900 lg:hidden"
+						className="order-2 text-slate-800 lg:hidden dark:text-slate-50"
 						onClick={handleOpen}
 					>
-						<span className="flex justify-center items-center">
-							<svg className="block w-6 h-6">
-								<use href="/assets/icons/icons.svg#menu"></use>
-							</svg>
-						</span>
+						<SvgIcon iconID="menu-alt-right-lienar" classes="w-10 h-8" />
 					</button>
 
 					{/* contacto */}
