@@ -9,7 +9,7 @@ export default function Association() {
 				<div className="w-24 h-24">
 					<img
 						className="aspect-square"
-						src="https://www.ibp.edu.pe/svg/cied.svg"
+						src="/assets/images/cied.svg"
 						alt="CIEDC - Consorcio de Instituciones Educativas de la Diócesis de Carabayllo"
 					/>
 				</div>
@@ -17,7 +17,7 @@ export default function Association() {
 				<div className="w-24 h-24">
 					<img
 						className="aspect-square"
-						src="https://www.ibp.edu.pe/svg/ced.svg"
+						src="/assets/images/ced.svg"
 						alt="Seamos uno para que el mundo crear"
 					/>
 				</div>
