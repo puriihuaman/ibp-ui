@@ -12,7 +12,7 @@ export default function Agreements() {
 						<article className="p-4 w-32 h-32 mx-auto">
 							<img
 								className="aspect-square"
-								src="https://www.ibp.edu.pe/img/bup.png"
+								src="/assets/images/bup.png"
 								alt="C.E.P. DIOCESANO - EL BUEN PASTOR"
 							/>
 						</article>
@@ -20,7 +20,7 @@ export default function Agreements() {
 						<article className="p-4 w-32 h-32 mx-auto">
 							<img
 								className="aspect-square"
-								src="https://www.ibp.edu.pe/img/dio.png"
+								src="/assets/images/dio.png"
 								alt="dio"
 							/>
 						</article>
@@ -28,7 +28,7 @@ export default function Agreements() {
 						<article className="p-4 w-32 h-32 mx-auto">
 							<img
 								className="aspect-square"
-								src="https://www.ibp.edu.pe/img/cied.png"
+								src="/assets/images/cied.png"
 								alt="cied"
 							/>
 						</article>
@@ -42,8 +42,8 @@ export default function Agreements() {
 
 					<div className="w-44 mx-auto md:w-60">
 						<img
-							className="aspect-video object-cover"
-							src="https://www.ibp.edu.pe/img/ucss.png"
+							className="aspect-video object-cover mix-blend-darken dark:mix-blend-screen"
+							src="/assets/images/ucss.png"
 							alt="ucss"
 						/>
 					</div>

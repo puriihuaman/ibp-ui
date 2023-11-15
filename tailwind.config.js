@@ -7,12 +7,17 @@ export default {
 			animation: {
 				swipe: "swipe 10s linear infinite backwards",
 				"swipe-reverse": "swipe-reverse 10s linear infinite reverse backwards",
+				"loop-scroll": "loop-scroll 20s alternate linear infinite",
 			},
 
 			keyframes: {
 				swipe: {
 					"0%": { transform: "translateX(0)" },
 					"100%": { transform: "translateX(-65%)" },
+				},
+				"loop-scroll": {
+					from: { transform: "translateX(0)" },
+					to: { transform: "translateX(-100%)" },
 				},
 			},
 			colors: {

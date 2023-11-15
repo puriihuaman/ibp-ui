@@ -3,8 +3,8 @@ export default function Logo() {
 		<div className="mr-auto">
 			<a href="/" className="block w-24">
 				<img
-					className="aspect-video w-full"
-					src="https://www.ibp.edu.pe/img/logo.png"
+					className="aspect-video w-full mix-blend-darken dark:mix-blend-screen"
+					src="/assets/images/logo.png"
 					alt="Logo IBP"
 				/>
 			</a>
